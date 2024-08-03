@@ -1,0 +1,45 @@
+USE STUDENT_DB;
+CREATE TABLE STAFF (
+    Staff_ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Address VARCHAR(255),
+    Branch VARCHAR(100)
+);
+CREATE TABLE BRANCH (
+    B_ID INT PRIMARY KEY,
+    Seat INT,
+    A_ID INT,
+    B_Name VARCHAR(100)
+);
+CREATE TABLE STUDENT (
+    Enroll_NO INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Address VARCHAR(255),
+    Branch VARCHAR(100),
+    B_ID INT,
+    FOREIGN KEY (B_ID) REFERENCES BRANCH(B_ID)
+);
+
+CREATE TABLE ADMIN (
+    A_ID INT PRIMARY KEY,
+    Username VARCHAR(100),
+    Password VARCHAR(100)
+);
+
+CREATE TABLE ATTENDANCE (
+    Attendance_id INT PRIMARY KEY,
+    Enroll_NO INT,
+    Staff_ID INT,
+    Date DATE,
+    Status VARCHAR(10),
+    FOREIGN KEY (Enroll_NO) REFERENCES STUDENT(Enroll_NO),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+CREATE TABLE ABSENT (
+    Absent_id INT PRIMARY KEY,
+    Enroll_NO INT,
+    Days INT,
+    Reason VARCHAR(255),
+    FOREIGN KEY (Enroll_NO) REFERENCES STUDENT(Enroll_NO)
+);
