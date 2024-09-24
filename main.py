@@ -140,7 +140,7 @@ def login():
     )
 
     # Display the image
-    #st.image(r"c:\Users\Harshini K\OneDrive\Pictures\Saved Pictures\port.jpg", width=700) insert an image here
+    st.image(r"image.jpg", width=700) #insert an image here
 
 
     st.markdown("<div class='login-title'>Please Enter your details!</div>", unsafe_allow_html=True)
